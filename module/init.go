@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"fasthttp_api/config"
+	"github.com/hopehook/fasthttp_api/config"
 )
 
 //
