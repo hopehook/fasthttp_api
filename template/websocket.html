@@ -1,0 +1,37 @@
+<html>
+    
+    <head>
+        <script type="text/javascript" src="/jquery.min.js">
+        </script>
+    </head>
+    
+    <body>
+        <input type="button" id="connect" value="socket connect" />
+        <input type="button" id="send" value="socket send" />
+        <input type="button" id="close" value="socket close" />
+    </body>
+    <script type="text/javascript">
+        var socket;
+        $("#connect").click(function(event) {
+            socket = new WebSocket("ws://127.0.0.1:8000/websocket/upgrade/");
+            socket.onopen = function() {
+                alert("Socket has been opened");
+            }
+            socket.onmessage = function(msg) {
+                alert(msg.data);
+            }
+            socket.onclose = function() {
+                alert("Socket has been closed");
+            }
+        });
+
+        $("#close").click(function(event) {
+            socket.close();
+        })
+		
+        $("#send").click(function(event) {
+            socket.send("Websocket server, I am browser.")
+        });
+    </script>
+
+</html>
