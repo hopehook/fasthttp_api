@@ -38,7 +38,10 @@ var REDIS map[string]string = map[string]string{
 
 // paths
 var TPL_PATH, UPLOAD_PATH, DOWNLOAD_PATH = func() (string, string, string) {
-	pwd, _ := os.Getwd()
+	// TODO: your project path. 
+	// WHY: we can run golang project in many environment, but the project path is different !
+	// So, fix project path, you can run this web project via "go run main.go" or "go build" & run or debug in any ide/tools.
+	pwd := ""
 	TemplatePath := filepath.Join(pwd, "template/")
 	UploadPath := filepath.Join(pwd, "file/upload/")
 	DownloadPath := filepath.Join(pwd, "file/download/")
